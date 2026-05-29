@@ -14,4 +14,14 @@ app.get('/profil', (req, res) => {
   res.json({ matakuliah: 'Komputasi Awan', topik: 'Serverless Azure' });
 });
 
+app.get('/waktu', (req, res) => {
+    const waktuSekarang = new Date();
+    res.json({
+        status: "success",
+        serverTime: waktuSekarang.toLocaleTimeString('id-ID'),
+        serverDate: waktuSekarang.toLocaleDateString('id-ID'),
+        timezone: "UTC/GMT (Azure Server Time)"
+    });
+});
+
 app.listen(port, () => console.log(`Server berjalan pada port ${port}`));
